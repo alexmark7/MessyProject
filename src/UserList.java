@@ -15,12 +15,12 @@ public class UserList {
     }
 
     public int size() {
-
-        return 0;
+        return user.size();
     }
 
-    public User get(int x) {
-        return null;
-
+    public User get(int index) {
+        return user.get(index);
     }
+
+
 }
