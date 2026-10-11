@@ -9,7 +9,7 @@ public class Persister {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (int x = 0; x < users.size(); x++) {
                 User user = users.get(x);
-                bw.write(user.c_nam + " " + user.geti());
+                bw.write(user.getName() + " " + user.getId() + " " + user.getAddress());
                 bw.newLine();
             }
         }

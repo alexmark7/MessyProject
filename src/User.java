@@ -1,47 +1,50 @@
-public class User
-{
-    public int c_id;
-    public String c_nam;
+import java.util.Objects;
+
+public class User {
+    private static final int MAX_NAME_LENGTH = 100;
+
+    public int id;
+    public String name;
     public String address;
 
-    public User(String n, int i){
-        c_id = i;
-        if(n.length() < 0 || n.length() > 100) // Testing length
-        {
-            return; //If string is invalid, we dont try to store it
+    public User(String name, int id) {
+        this.id = id;
+        setName(name);
+    }
+
+    public void setName(String name) {
+        if (name == null || name.length() > MAX_NAME_LENGTH) {
+            return;
         }
-        c_nam = n;
+        this.name = name;
     }
 
-    public void setC_nam(String n)
-    {
-        if(n.length() < 0)
-        {
-            return; //If string is invalid, we dont try to store it
-        }
-        c_nam = n;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public void setA(String a)
-    {
-        a = a;
+    public int getId() {
+        return id;
     }
 
-    public int geti(){ return c_id; }
+    public String getName() {
+        return name;
+    }
 
-    public String getn(){ return c_nam; }
-
-    public String geta(){ return "STREETNAME"; }
+    public String getAddress() {
+        return address;
+    }
 
     @Override
-    public boolean equals(Object o){
-        if(o instanceof User u){
-            return u.c_nam == c_nam;
+    public boolean equals(Object o) {
+        if (o instanceof User u) {
+            return Objects.equals(name, u.name);
         }
         return false;
     }
+
     @Override
     public String toString() {
-        return c_nam + " (" + c_id + ")";
+        return name + " (" + id + ")";
     }
 }

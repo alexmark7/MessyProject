@@ -1,26 +1,29 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserList {
-    private ArrayList<User> user = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
-    public void add(User u) {
-        if (u == null) {
+    public void add(User user) {
+        if (user == null) {
             return;
         }
-        user.add(u);
+        users.add(user);
     }
 
-    public ArrayList<User> getu(User userToFind) {
-        return user;
+    public User findUser(User userToFind) {
+        int index = users.indexOf(userToFind);
+        if (index < 0) {
+            return null;
+        }
+        return users.get(index);
     }
 
     public int size() {
-        return user.size();
+        return users.size();
     }
 
     public User get(int index) {
-        return user.get(index);
+        return users.get(index);
     }
-
-
 }
