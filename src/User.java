@@ -40,4 +40,8 @@ public class User
         }
         return false;
     }
+    @Override
+    public String toString() {
+        return c_nam + " (" + c_id + ")";
+    }
 }
